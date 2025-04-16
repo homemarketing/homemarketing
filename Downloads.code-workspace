@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../Downloads"
+		},
+		{
+			"path": "../New folder (2)/html"
+		},
+		{
+			"path": "../New folder (2)/documentation"
+		},
+		{
+			"path": "../New folder (2)/__MACOSX"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Downloads"
+	}
+}

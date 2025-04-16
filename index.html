@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Marketing</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Home Marketing</h1>
+  <a href="register.html">Register</a> | 
+  <a href="login.html">Login</a> |
+  <a href="create-sale.html">Post a Sale</a>
+  <div id="sales"></div>
+
+  <script>
+    fetch('http://localhost:5000/api/sales')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('sales');
+        data.forEach(sale => {
+          const div = document.createElement('div');
+          div.innerHTML = `
+            <h3>${sale.title}</h3>
+            <p>${sale.description}</p>
+            <p>Price: $${sale.price}</p>
+            <p>Posted by: ${sale.userId.username}</p>
+            <img src="http://localhost:5000/uploads/${sale.image}" width="200"/>
+          `;
+          container.appendChild(div);
+        });
+      });
+  </script>
+  <!DOCTYPE html>
+  <html>
+  <head><title>Login</title></head>
+  <body>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="Email" name="email" required><br/>
+      <input type="password" placeholder="Password" name="password" required><br/>
+      <button type="submit">Login</button>
+    </form>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const res = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            email: form.email.value,
+            password: form.password.value
+          })
+        });
+        const data = await res.json();
+        if (data.userId) {
+          localStorage.setItem('userId', data.userId);
+          alert('Logged in!');
+        } else {
+          alert(data.error);
+        }
+      });
+    </script>
+  </body>
+  </html>
+  <!DOCTYPE html>
+  <html>
+  <head><title>Login</title></head>
+  <body>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="email" placeholder="Email" name="email" required><br/>
+      <input type="password" placeholder="Password" name="password" required><br/>
+      <button type="submit">Login</button>
+    </form>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const res = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            email: form.email.value,
+            password: form.password.value
+          })
+        });
+        const data = await res.json();
+        if (data.userId) {
+          localStorage.setItem('userId', data.userId);
+          alert('Logged in!');
+        } else {
+          alert(data.error);
+        }
+      });
+    </script>
+  </body>
+  </html>
+  <!DOCTYPE html>
+  <html>
+  <head><title>Register</title></head>
+  <body>
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" placeholder="Username" name="username" required><br/>
+      <input type="email" placeholder="Email" name="email" required><br/>
+      <input type="password" placeholder="Password" name="password" required><br/>
+      <button type="submit">Register</button>
+    </form>
+    <script>
+      document.getElementById('registerForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const res = await fetch('http://localhost:5000/api/auth/register', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            username: form.username.value,
+            email: form.email.value,
+            password: form.password.value
+          })
+        });
+        const data = await res.json();
+        alert(data.message);
+      });
+    </script>
+  </body>
+  </html>
+  
+</body>
+</html>

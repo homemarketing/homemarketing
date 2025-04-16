@@ -1,0 +1,17 @@
+home-marketing/
+├── backend/
+│   ├── models/
+│   │   ├── User.js
+│   │   └── Sale.js
+│   ├── routes/
+│   │   ├── auth.js
+│   │   └── sales.js
+│   ├── uploads/
+│   ├── server.js
+├── frontend/
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── create-sale.html
+│   ├── style.css
+└── .env
