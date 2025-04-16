@@ -15,7 +15,3 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 git clone https://github.com/homemarketing/homemarketing.git
-cd homemarketing
-homemarketing/
-├── client/
-└── server/
