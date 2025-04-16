@@ -17,5 +17,5 @@ Here are some ideas to get you started:
 git clone https://github.com/homemarketing/homemarketing.git
 cd homemarketing
 homemarketing/
-git clone ├── client/
-git clone └── server/
+git clone ├── client/ cd
+git clone └── server/ cd
