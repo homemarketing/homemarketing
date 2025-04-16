@@ -16,3 +16,6 @@ Here are some ideas to get you started:
 -->
 git clone https://github.com/homemarketing/homemarketing.git
 cd homemarketing
+homemarketing/
+├── client/
+└── server/
